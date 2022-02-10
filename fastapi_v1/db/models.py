@@ -1,7 +1,7 @@
 import datetime as _dt
 import email
 from sqlalchemy import Column,String,Integer,DateTime
-import db_connection as _db
+from db import db_connection as _db
 
 class Contact(_db.Base):
     __tablename__ = "contacts"
