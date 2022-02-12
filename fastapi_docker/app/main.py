@@ -6,3 +6,5 @@ app = FastAPI()
 @app.get('/')
 async def index():
     return {'status':'homepage'}
+
+

@@ -1,5 +1,3 @@
-from operator import index
-from matplotlib.pyplot import title
 from sqlalchemy import Column,String,Integer,DateTime,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
@@ -17,10 +15,10 @@ class Book(Base):
     created =   Column(DateTime(timezone=True),server_default=func.now())
     updated =   Column(DateTime(timezone=True),onupdate=func.now())
     
-    authord_id  =   Column(Integer,ForeignKey('author.id'))
+    authord_id  =   Column(Integer,ForeignKey('author.id',ondelete="CASCADE"))
     author      =   relationship("Author")
 
-class Author():
+class Author(Base):
     __tablename__ = 'author'
 
     id      =   Column(Integer,primary_key=True,index=True)
@@ -28,4 +26,3 @@ class Author():
     age     =   Column(Integer)
     created =   Column(DateTime(timezone=True),server_default=func.now())
     updated =   Column(DateTime(timezone=True),onupdate=func.now())
-    
