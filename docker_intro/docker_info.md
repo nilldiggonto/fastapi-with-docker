@@ -20,7 +20,9 @@
     $ docker container ls -a (List of all container)
     $ docker container rm CONTAINER_ID(Remove container)
     $ docker container rm -f CONTAINER_ID(Force Remove)
-    $ docker container 
+    $ docker container inspect CONTAINER_ID
+    $ docker container stats
+
 
     ```
 
@@ -39,4 +41,26 @@
     * Apache
     ```
     $ docker container run -d --name webserver -p 8080:80 httpd
+    ```
+
+    * Interactive Container
+    ```
+    $ docker container run -it --name proxy nginx bash
+    $ docker container run -it --name ubuntu ubuntu
+    $ docker container start -ai ubuntu (reRUn container)
+
+    $ docker container exec -it mysql bash (existing container bash)
+    ```
+
+    * Docker Image
+    ```
+    $ docker pull IMAGE_NAME
+    $ docker image ls
+    ```
+
+    * Docker Network
+    ```
+    $ docker container port CONTAINERID
+    $ docker container inspect --format '{{ .NetworkSettings.IPAddress}}' CONTAINERID
+    $ 
     ```
