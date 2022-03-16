@@ -62,5 +62,40 @@
     ```
     $ docker container port CONTAINERID
     $ docker container inspect --format '{{ .NetworkSettings.IPAddress}}' CONTAINERID
-    $ 
+    $ docker container port webhost (Know the port service running)
+
+    $ docker network ls (show all network)
+    $ docker network create dummy_net (create a network)
+    $ docker container run -d --name new_nginx --network dummy_net nginx
+
+    //connect to network
+    $ docker network connect network_id container_id
+    //disconnect to network
+    $ docker network disconnect networkd_id container_id
     ```
+
+    * DNS
+    ```
+    $ docker container exec -it container_nginx ping another_container_nginx (same network)
+
+    //Auto cleaning
+    $ docker container run --rm -it centos:7 bash
+    $ docker container run --rm -it ubuntu:14.04 bash
+
+    // DNS ROUND ROBIN
+    $ docker network create 
+    $ docker container run -d --net robin --net-alias search elasticsearch:2 (creating network alias)
+
+    $ docker container run --rm --net robin alpine nslookup search
+    $ docker container run --rm --net robin centos curl -s search:9200
+
+    ```
+    * images
+    ```
+    $ docker image ls
+    $ dokcer pull nginx (pull from hub.docker.com)
+    $ docker history IMAGENAME
+    $ docker inspect IMAGENAME
+    
+    ```
+
