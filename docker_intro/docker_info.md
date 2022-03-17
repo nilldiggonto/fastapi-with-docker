@@ -105,7 +105,25 @@
     $ docker image tag customnginx:latest nilldiggonto/customnginx:latest 
     $ docker push nilldiggonto/customnginx:latest
     $ docker image rm nilldiggonto/customnginx:latest
+    $ docker image prune (Remove unused images)
+    $ docker system prune (Clean everything)
+    ```
+    * Docker Volume
+    ```
+    $ docker volume prune (remove unused volume)
+    $ docker pull mysql
+    $ docker inspect mysql
+    $ docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql mysql
+    $ docker volume ls (list of volume)
+    
+    //bind mounting
+    $ cat Dockerfile
+    $ docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx
+    //
+    
 
-
-    ``
+    // naming volume
+    $ docker container run -d --name psql -v psql:/var/lib/postgresql/data postgres:9.6.1
+    $ docker container logs -f psql
+    ```
 
