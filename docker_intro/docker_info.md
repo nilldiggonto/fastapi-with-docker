@@ -103,5 +103,9 @@
     $ docker image build -t customnginx .  
     $ docker container run --rm -p 80:80 customnginx
     $ docker image tag customnginx:latest nilldiggonto/customnginx:latest 
+    $ docker push nilldiggonto/customnginx:latest
+    $ docker image rm nilldiggonto/customnginx:latest
+
+
     ``
 
