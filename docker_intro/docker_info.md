@@ -120,10 +120,16 @@
     $ cat Dockerfile
     $ docker container run -d --name nginx -p 80:80 -v $(pwd):/usr/share/nginx/html nginx
     //
-    
+
 
     // naming volume
     $ docker container run -d --name psql -v psql:/var/lib/postgresql/data postgres:9.6.1
     $ docker container logs -f psql
+    ```
+
+    * docker compose
+    ```
+    $ docker compose up
+    $ docker compose down -v
     ```
 

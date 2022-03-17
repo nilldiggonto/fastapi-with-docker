@@ -1,0 +1,12 @@
+version : '1.1'
+
+services:
+  servicename:
+    image:
+    command:
+    environment:
+    volumes:
+  
+  servicename2:
+
+volumes:
