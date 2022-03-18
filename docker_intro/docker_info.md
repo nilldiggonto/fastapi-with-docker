@@ -127,9 +127,10 @@
     $ docker container logs -f psql
     ```
 
-    * docker compose
+    * docker-compose
     ```
-    $ docker compose up
-    $ docker compose down -v
+    $ docker-compose up
+    $ docker-compose down -v
+    $ docker-compose down --rmi local (Delete local images)
     ```
 
