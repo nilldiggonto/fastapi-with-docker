@@ -1,9 +1,0 @@
-version: '1'
-
-services: 
-  jekyll:
-    image: bretfisher/jekyll-serve
-    volumes: 
-      - .:/site
-    ports:
-    
