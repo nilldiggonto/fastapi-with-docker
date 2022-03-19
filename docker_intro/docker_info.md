@@ -134,3 +134,42 @@
     $ docker-compose down --rmi local (Delete local images)
     ```
 
+    * Swarm
+    ```
+    $ docker swarm init
+    $ docker swarm init --advertise-addr 192.168.0.1:2377
+
+    $ docker node ls (manager)
+    ```
+    * Service
+    ```
+    $ docker service create alpine ping 8.8.8.8
+    $ docker service ls
+    $ docker service ps SERVICE_NAME
+
+    //scale
+    $ docker service update SERVICE_ID --replicas 3
+    $ docker service rm SERVICE_ID
+
+    // Overlay network
+    $ docker network create --driver overlay NAME_WHATEVER
+    $ docker service create --name NAME_SERVICE --network NETWORK_NAME -e POSTGRES_PASSWORD=hlwpass postgres
+    $ docker service ps NAME_SERVICE
+
+    $ docker service create --name WHATEVER_NAME --network NETWORK_NAME -p 80:80 drupal
+
+    // Swarm-Stacks
+    $ docker stack deploy -c STACK.yml NAMETHEAPP
+    $ docker stack ls
+    $ docker stack ps NAMETHEAPP
+    $ docker stack services NAMETHEAPP
+
+    // swarm-secret
+    $ docker secret create psql_user secret.txt
+    $ echo "mysecret" | docker secret create psql_pass -
+
+    $ docker service create --name psql --secret psql_user --secret psql_pass -e POSTGRES_PASSWORD_FILE=/run/secrets/psql_pass -e POSTGRES_USER_FILE=/run/secrets/psql_user postgres
+
+    $ docker service update --secret-rm 
+
+    ```
