@@ -1,0 +1,5 @@
+Generic single-database configuration.
+* alembic
+    ```
+    alembic init alembic
+    ```
